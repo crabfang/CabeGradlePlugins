@@ -25,6 +25,20 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
 }
 
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    repositories {
+        maven {
+            url uri('../repo')
+        }
+    }
+    dependencies {
+        classpath 'com.cabe.plugin.pgyer:PgyerUpload:0.1.0'
+    }
+}
 apply plugin: "com.cabe.pgyer"
 pgyer {
     _api_key = "38799a299871a7c3d5dc92586cdb1c7f"
@@ -33,7 +47,7 @@ pgyer {
 
 apks {
     release {
-        password = String.valueOf("51")
+        password = 51
         sourceFile = file("CigaretteSX-release-v1.5.apk")
     }
 }
