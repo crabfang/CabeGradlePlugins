@@ -15,10 +15,10 @@ class Apk {
      */
     int isPublishToPublic
 
-    /**
-     * (当用户上传的文件为开发者签名的ipa并且publishRange为1时，为必填。否则为选填) 设置App安装密码，为空或不传则应用无下载密码
-     */
+    /** (选填) 设置App安装密码，如果不想设置密码，请传空字符串，或不传 */
     String password
+    /** (选填) 版本更新描述，请传空字符串，或不传。  */;
+    String updateDescription;
 
     Apk(String name, File file, int publishRange, int isPublishToPublic, String password) {
         this.name = name
@@ -39,6 +39,9 @@ class Apk {
         }
         if(password != null && !password.isEmpty()) {
             params.put("password", password)
+        }
+        if(updateDescription != null && !updateDescription.isEmpty()) {
+            params.put("updateDescription", updateDescription);
         }
 
         return params
@@ -65,6 +68,9 @@ class Apk {
             }
             if(_apk.hasProperty("password")) {
                 apk.password = _apk.password
+            }
+            if(_apk.hasProperty("updateDescription")) {
+                apk.updateDescription = _apk.updateDescription;
             }
             apks.add(apk)
         }

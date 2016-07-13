@@ -6,10 +6,10 @@ import org.gradle.api.internal.project.ProjectInternal
 class ApkTarget implements Named {
     String name
     String password
+    String updateDescription;
     ProjectInternal target 
     File sourceFile
 
-    String distributionKey
     /**
      * (ipa上传时为必填) 填写发布范围，值为（1，2，3），1：企业发布，2：直接发布，3：只有我安装
      */
@@ -24,5 +24,6 @@ class ApkTarget implements Named {
         this.name = name
         this.target = target
         this.password = ""
+        this.updateDescription = ""
     }
 }
