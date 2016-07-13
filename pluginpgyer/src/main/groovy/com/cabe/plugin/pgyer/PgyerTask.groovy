@@ -42,6 +42,8 @@ class PgyerTask extends DefaultTask {
     }
 
     private HashMap<String, JSONObject> httpPost(String endPoint, List<Apk> apks) {
+        println("httpPost: " + endPoint)
+
         HashMap<String, JSONObject> result = new HashMap<String, JSONObject>()
         OkHttpClient client = new OkHttpClient();
         client.setConnectTimeout(10, TimeUnit.SECONDS);
@@ -63,7 +65,7 @@ class PgyerTask extends DefaultTask {
                 multipartBuilder.addFormDataPart(key, params.get(key))
             }
 
-            Request request = new Request.Builder().url(getEndPoint(project)).
+            Request request = new Request.Builder().url(endPoint).
                     post(multipartBuilder.build()).
                     build()
 

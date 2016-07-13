@@ -36,7 +36,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.cabe.plugin.pgyer:PgyerUpload:0.1.0'
+        classpath 'com.cabe.plugin.pgyer:PgyerUpload:0.5.0'
     }
 }
 apply plugin: "com.cabe.pgyer"
@@ -47,7 +47,8 @@ pgyer {
 
 apks {
     release {
+        updateDescription = "update description cf"
         password = 51
-        sourceFile = file("CigaretteSX-release-v1.5.apk")
+        sourceFile = file("CigaretteSX-release-v2.0.apk")
     }
 }
